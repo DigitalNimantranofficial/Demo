@@ -6,12 +6,13 @@
   <title>लग्नाचे आमंत्रण</title>
 
   <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Marathi&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500;700&family=Yatra+One&family=Playfair+Display:wght@500&family=Caveat&display=swap" rel="stylesheet"/>
 
   <style>
     body {
-      font-family: 'Tiro Devanagari Marathi', serif;
+      font-family: 'Kalam', cursive;
       margin: 0;
       background: url('https://iili.io/FxgPcge.jpg') no-repeat center center;
       background-size: cover;
@@ -188,7 +189,7 @@
     <div style="margin-top: 60px; text-align: center;">
       <h2 class="animate-zoom" style="font-family: 'Yatra One'; color:#8B4513;">तुमची उपस्थिती आम्हाला हवी आहे</h2>
       <p class="animate-zoom" style="font-size: 1.2em;">खालील बटन(Button) वर क्लिक(Click) करून तुमची उपस्थिती आम्हाला कळवा....:</p>
-      <a href="https://wa.me/919823693229?text=मी%20लग्नाला%20येणार%20आहे!" 
+      <a href="https://wa.me/919322027616?text=मी%20लग्नाला%20येणार%20आहे!" 
          target="_blank" 
          class="animate-right" style="display:inline-block; padding: 12px 24px; background-color: #25D366; color: white; font-size: 1.2em; border-radius: 8px; text-decoration: none; font-weight: bold;">
         ✅ WhatsApp
@@ -391,12 +392,8 @@
 <script>
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting && !entry.target.classList.contains('in-view')) {
-        const el = entry.target;
-        // Add 1-second delay before animation starts
-        setTimeout(() => {
-          el.classList.add('in-view');
-        }, 1000);
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
       }
     });
   }, { threshold: 0.1 });
