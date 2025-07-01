@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>लग्नाचे आमंत्रण</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Marathi&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500;700&family=Yatra+One&family=Playfair+Display:wght@500&family=Caveat&display=swap" rel="stylesheet"/>
+
+  <style>
+    body {
+      font-family: 'Tiro Devanagari Marathi', serif;
+      margin: 0;
+      background: url('https://iili.io/FxgPcge.jpg') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    .container {
+      text-align: center;
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+      border-radius: 20px;
+    }
+
+    h1 {
+      font-family: Sumana;
+      color: #B8860B;
+      font-size: 3.2em;
+      margin-bottom: 30px;
+    }
+
+    .animated-text {
+      font-family: Yatra One;
+      animation: fadeInUp 2s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .couple-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 60px;
+      margin-top: 40px;
+    }
+
+    .decorative-frame {
+      position: relative;
+      width: 350px;
+      height: 350px;
+    }
+
+    .frame-img {
+      width: 100%;
+      height: 92%;
+    }
+
+    .profile-pic {
+      position: absolute;
+      top: 46%;
+      left: 50%;
+      width: 220px;
+      height: 220px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 100px gold;
+    }
+
+    .name {
+      font-family: 'Yatra One', cursive;
+      font-size: 2.2em;
+      margin-top: 20px;
+      color: #8B4513;
+    }
+
+    .quote, .poetry {
+      font-family: 'Yatra One', cursive;
+      font-size: 1.5em;
+      color: #444;
+      margin: 30px auto;
+      max-width: 800px;
+    }
+
+    .slideshow-container {
+      width: 300px;
+      overflow: hidden;
+      margin: 20px auto;
+      border: 4px solid #2B1B17;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #2B1B17;
+    }
+
+    .slides-wrapper {
+      display: flex;
+      transition: transform 1s ease-in-out;
+      width: calc(300px * 6);
+    }
+
+    .slide {
+      height: 400px;
+      object-fit: cover;
+      min-width: 300px;
+      border-radius: 12px;
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 1.2em;
+      text-align: center;
+      color: #333;
+    }
+  
+  .animate-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease;
+  }
+  .animate-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: all 1s ease;
+  }
+  .animate-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: all 1s ease;
+  }
+  .animate-zoom {
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 1s ease;
+  }
+  .in-view {
+    opacity: 1 !important;
+    transform: translate(0, 0) scale(1) !important;
+  }
+
+</style>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1 class="animate-up">आपण आमंत्रित आहात</h1>
+
+    <div class="couple-container">
+      <div class="decorative-frame">
+        <img class="frame-img" src="https://iili.io/FxgyRff.md.png" alt="Frame"/>
+        <img class="profile-pic" src="https://iili.io/Fz36fte.md.png" alt="Husband"/>
+        <div class="name animate-left">सिद्धार्थ मल्होत्रा</div>
+      </div>
+      <div class="decorative-frame">
+        <img class="frame-img" src="https://iili.io/FxgyRff.md.png" alt="Frame"/>
+        <img class="profile-pic" src="https://iili.io/Fz34twX.md.png" alt="Wife"/>
+        <div class="name animate-right">कियारा अडवाणी</div>
+      </div>
+    </div>
+
+    <!-- Countdown Timer -->
+    <div id="countdown" style="font-family: 'Caveat', cursive; font-size: 2em; font-weight: bold; color: black; margin: 100px auto 60px auto; padding: 20px; border: 2px solid gold; border-radius: 20px; display: inline-block; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(4px);">
+    </div>
+
+    <p class="animate-left">शनिवार, १२ ऑगस्ट २०२५, सायंकाळी ६:०० वाजता</p>
+    <p class="animate-left">स्थळ: द गोल्डन लीफ बँक्वेट, मरीन ड्राइव्ह, मुंबई</p>
+    <p class="animate-left">प्रेम, हास्य, संगीत आणि सुंदर आठवणींसाठी आम्हाला तुमच्या उपस्थितीची गरज आहे.</p>
+    <p class="animate-left">ड्रेस कोड: गोल्डन टचसह एलिगंट पोशाख</p>
+
+    <div class="quote animate-up">"प्रेम म्हणजे फक्त भावना नाही, तर एक सुंदर बंध आहे."</div>
+    <div class="poetry animate-up">"पानोपानी सजले स्वप्नांचे रंग<br/>मनामनात नांदेल साजिरा संग"</div>
+
+    <div style="text-align: center; margin-top: 40px; font-size: 18px;">
+      <p>📍 Wedding Location:</p>
+      <a href="https://maps.app.goo.gl/zWxZ2q4q3aCmRmhn7?g_st=aw" target="_blank" style="color: black; font-weight: bold; text-decoration: underline;">
+        The Golden Leaf Banquet, Marine Drive, Mumbai
+      </a>
+    </div>
+
+    <div style="margin-top: 60px; text-align: center;">
+      <h2 class="animate-zoom" style="font-family: 'Yatra One'; color:#8B4513;">तुमची उपस्थिती आम्हाला हवी आहे</h2>
+      <p class="animate-zoom" style="font-size: 1.2em;">खालील बटन(Button) वर क्लिक(Click) करून तुमची उपस्थिती आम्हाला कळवा....:</p>
+      <a href="https://wa.me/919823693229?text=मी%20लग्नाला%20येणार%20आहे!" 
+         target="_blank" 
+         class="animate-right" style="display:inline-block; padding: 12px 24px; background-color: #25D366; color: white; font-size: 1.2em; border-radius: 8px; text-decoration: none; font-weight: bold;">
+        ✅ WhatsApp
+      </a>
+    </div>
+
+    <div style="margin-top: 60px; font-family: 'Yatra One', cursive;">
+      <h2 style="color: #8B4513;">🎊 पारंपरिक लग्न विधी</h2>
+      <ul style="list-style: none; padding: 0; font-size: 1.2em;">
+        <li><div class="animate-left"><strong>🌼 हल्दी:</strong> शुक्रवार, ११ ऑगस्ट २०२५, सकाळी १०:००</strong></div></li>
+        <li><div class="animate-left"><strong>🎨 मेंहंदी:</strong> शुक्रवार, ११ ऑगस्ट २०२५, सायंकाळी ५:००</strong></div></li>
+        <li><div class="animate-left"><strong>🎉 संगीत:</strong> शुक्रवार, ११ ऑगस्ट २०२५, रात्री ८:००</strong></div></li>
+        <li><div class="animate-left"><strong>💍 लग्न:</strong> शनिवार, १२ ऑगस्ट २०२५, सायंकाळी ६:००</strong></div></li>
+        <li><div class="animate-left"><strong>🍽️ स्वागत:</strong> रविवार, १३ ऑगस्ट २०२५, रात्री ८:००</strong></div></li>
+      </ul>
+    </div>
+
+    
+<!-- Wedding Gallery -->
+<div style="max-width: 340px; margin: 60px auto; text-align: center;">
+  <img src="https://iili.io/FzEDJgj.jpg" alt="Photo 1" style="width:100%; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 0 10px #2B1B17;">
+  <img src="https://iili.io/FzED9qu.jpg" alt="Photo 2" style="width:100%; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 0 10px #2B1B17;">
+  <img src="https://iili.io/FzEDH0b.jpg" alt="Photo 3" style="width:100%; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 0 10px #2B1B17;">
+  <img src="https://iili.io/FzEDKmB.md.png" alt="Photo 4" style="width:100%; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 0 10px #2B1B17;">
+  <img src="https://iili.io/FzEDBX1.md.jpg" alt="Photo 5" style="width:100%; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 0 10px #2B1B17;">
+  <img src="https://iili.io/FzEDqzP.jpg" alt="Photo 6" style="width:100%; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 0 10px #2B1B17;">
+</div>
+
+
+<!-- Footer Message at Bottom -->
+    <div class="footer">आपण सर्वांसोबत हा क्षण साजरा करण्यासाठी उत्सुक आहोत!</div>
+  </div>
+
+  <!-- Countdown Script -->
+  <script>
+    const weddingDate = new Date("2025-08-12T18:00:00").getTime();
+    const countdownEl = document.getElementById("countdown");
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance < 0) {
+        countdownEl.innerHTML = "The wedding celebration has begun!";
+        startConfetti();
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownEl.innerHTML = `Time left: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    function startConfetti() {
+      const duration = 5 * 1000;
+      const animationEnd = Date.now() + duration;
+      const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 2000 };
+
+      function randomInRange(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+      const interval = setInterval(function() {
+        const timeLeft = animationEnd - Date.now();
+
+        if (timeLeft <= 0) {
+          return clearInterval(interval);
+        }
+
+        const particleCount = 50 * (timeLeft / duration);
+        confetti(Object.assign({}, defaults, {
+          particleCount,
+          origin: { x: randomInRange(0.1, 0.9), y: Math.random() - 0.2 }
+        }));
+      }, 250);
+    }
+  </script>
+
+  <!-- Background Music -->
+  <audio id="bg-music" loop>
+    <source src="https://audio.jukehost.co.uk/pLeXbKNtv6mRfM402ev77gz4JU4gtIOU" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+<style>
+  #blur-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.3);
+    z-index: 9998;
+  }
+
+  #music-prompt {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 270px 110px;
+	font-family: Caveat;
+    font-size: 30px;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    z-index: 9999;
+    box-shadow: 0 0 50px rgba(0,0,0,0.4);
+    cursor: pointer;
+    background-image: url('https://iili.io/FxgPcge.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-shadow: 1px 1px 2px black;
+  }
+
+  .animate-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease;
+  }
+  .animate-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: all 1s ease;
+  }
+  .animate-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: all 1s ease;
+  }
+  .animate-zoom {
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 1s ease;
+  }
+  .in-view {
+    opacity: 1 !important;
+    transform: translate(0, 0) scale(1) !important;
+  }
+
+</style>
+
+<script>
+  let musicStarted = false;
+  const music = document.getElementById("bg-music");
+
+  function tryPlayMusic() {
+    if (musicStarted) return;
+
+    music.play().then(() => {
+      musicStarted = true;
+      console.log("Music started after scroll.");
+      window.removeEventListener("scroll", tryPlayMusic);
+      document.getElementById("music-prompt")?.remove();
+      document.getElementById("blur-overlay")?.remove();
+    }).catch((e) => {
+      console.warn("Autoplay blocked in Chrome:", e);
+      showPlayButton();
+    });
+  }
+
+  function showPlayButton() {
+    if (document.getElementById("music-prompt")) return;
+
+    const overlay = document.createElement("div");
+    overlay.id = "blur-overlay";
+
+    const button = document.createElement("button");
+    button.innerText = "WELCOME...🙏🥰💕   Click anywhere to proceed";
+    button.id = "music-prompt";
+    button.onclick = () => {
+      music.play().then(() => {
+        musicStarted = true;
+        button.remove();
+        overlay.remove();
+        console.log("Music started by user tap.");
+      });
+    };
+
+    document.body.appendChild(overlay);
+    document.body.appendChild(button);
+  }
+
+  window.addEventListener("scroll", tryPlayMusic, { once: true });
+</script>
+
+
+
+
+  
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.classList.contains('in-view')) {
+        const el = entry.target;
+        // Add 1-second delay before animation starts
+        setTimeout(() => {
+          el.classList.add('in-view');
+        }, 1000);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.animate-up, .animate-left, .animate-right, .animate-zoom').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
